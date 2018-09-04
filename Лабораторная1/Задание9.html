@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8"/>
+	</head>
+	<body>
+		<input type="text" id="in_cx">
+		</input>
+		<input type="text" id="in_cy">
+		</input>
+		<input type="text" id="in_r">
+		</input>
+		<input type="text" id="in_color">
+		</input>
+		<input type="button" onclick="work()">
+		</input>
+		
+		<div id="out">
+		</div>
+		<script>
+		  function work(){
+		   
+		   var str_cx = document.getElementById("in_cx");
+		   var str_cy = document.getElementById("in_cy");
+		   var str_r = document.getElementById("in_r");
+		   var str_color = document.getElementById("in_color");
+		   var out=document.getElementById("out");
+		   out.innerHTML = 
+		   '<svg width="800" height="600">' +
+		       '<circle cx="'+str_cx.value+'"' +
+			   'cy="'+str_cy.value+'"' +
+			   'r="'+str_r.value+'"' +
+			   'fill="'+str_color.value+'"/></svg>';
+		  }
+		</script>
+	</body>
+</html>
