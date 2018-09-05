@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8"/>
+	</head>
+	<body>
+		<input type="text" id="name1">First Name</input> <br>
+		<input type="text" id="name2">Last Name	</input> <br>
+		<input type="button" onclick="work()"></input>
+		<div id="out">
+		</div>
+		<script>
+		  function work(){
+		   var str1 = document.getElementById("name1").value;
+		   var str2 = document.getElementById("name2").value;
+		   var out = document.getElementById("out");
+		   out.innerHTML = "Меня зовут " + str2 + ", " + str1 + " " + str2 + ".";
+		  }
+		</script>
+	</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8"/>
+	</head>
+	<body>
+		<h1>Вводимые данные </h1>
+		<input type="text" id="user">user</input> <br>
+		<input type="password" id="pass">password</input> <br>
+		<input type="text" id="host">host</input> <br>
+		<input type="number" id="port">port</input> <br>
+		<input type="text" id="db">db</input> <br>
+		<input type="button" onclick="work()" value="Do it"></input>
+		<div id="out">
+		</div>
+		<script>
+		  function work(){
+		   document.getElementById("out").innerHTML = 
+		   "User ID=" + document.getElementById("user").value +
+		   ";Password=" + document.getElementById("pass").value + "<br>" +
+		   ";Host=" + document.getElementById("host").value +
+		   ";Port=" + document.getElementById("port").value +
+		   ";Database=" + document.getElementById("db").value +";";
+		  }
+		</script>
+	</body>
+</html>

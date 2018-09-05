@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8"/>
+	</head>
+	<body>
+		<h1>Вводимые данные </h1>
+		<input type="number" id="num_x">x</input> <br>
+		<input type="number" id="num_y">y</input> <br>
+		<input type="button" onclick="work()"></input>
+		<div id="out">
+		</div>
+		<script>
+		  function work(){
+		   document.getElementById("out").innerHTML = 
+		   "INSERT INTO points (x, y) VALUES ('" + document.getElementById("num_x").value + "', '" + 
+		   document.getElementById("num_y").value + "');";
+		  }
+		</script>
+	</body>
+</html>

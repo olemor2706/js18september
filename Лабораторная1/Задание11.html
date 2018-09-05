@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8"/>
+	</head>
+	<body>
+		<h1>Вводимые данные </h1>
+		<input type="number" id="val_a">a</input> <br>
+		<input type="number" id="val_b">b</input> <br>
+		<input type="number" id="val_c">c</input> <br>
+		<input type="button" onclick="work()" value="Do it"></input>
+		<div id="out">
+		</div>
+		<script>
+		  function work(){
+		    var a = document.getElementById("val_a").value;
+			var b = document.getElementById("val_b").value;
+			var c = document.getElementById("val_c").value;
+		   document.getElementById("out").innerHTML = 
+		   "Квадратное уравнение " + a + "*x*x + " + b + "*x + " + c + " = 0. <br>" +
+           "Его дискриминант вычисляется по формуле: d = " + b + "*" + b + " - 4*" + a + "*" + c ;
+		  }
+		</script>
+	</body>
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8"/>
+	</head>
+	<body>
+		<select id = "sel">
+		  <option value="просто" checked>просто	</option> 
+		  <option value="интересно">интересно	</option> 
+		  <option value="перспективно">перспективно	</option> 
+		</select>
+		<input type="button" onclick="work()">		</input>
+		<div id="out">
+		</div>
+		<script>
+		  function work(){
+		   var str = document.getElementById("sel");
+		   var a = str.value;       
+		   var out = document.getElementById("out");
+		   out.innerHTML = "Программирование это " + a + "!";
+		  }
+		</script>
+	</body>
+</html>

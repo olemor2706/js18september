@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8"/>
+	</head>
+	<body>
+		<input type="radio" name="qqq" value="трудности" checked>трудности	</input> <br>
+		<input type="radio" name="qqq" value="загадки">загадки	</input> <br>
+		<input type="radio" name="qqq" value="сложные задачи">сложные задачи	</input> <br>
+		<input type="button" onclick="work()">
+		</input>
+		<div id="out">
+		</div>
+		<script>
+		  function work(){
+		   var str = document.getElementsByName("qqq");
+		   var a;
+		   for (var i = 0; i < str.length; i++) {
+				if (str[i].checked) {
+					a = str[i].value;       
+				}
+			}
+		   var out=document.getElementById("out");
+		   out.innerHTML = a + " нас не остановят!";
+		  }
+		</script>
+	</body>
+</html>
