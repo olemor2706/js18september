@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8"/>
+	</head>
+	<body>
+	    <input type="number" id="in_a"> A	</input> <br>
+		<input type="number" id="in_b"> B	</input> <br>
+		<input type="button" onclick="work()">
+		</input>
+		<div id="out"> </div>
+		<script>
+		function work(){
+		   var out = document.getElementById("out");
+		   var a = document.getElementById("in_a").value;
+		   var b = document.getElementById("in_b").value;
+		   if (a<b){
+		     out.innerHTML = 'Второе'
+		     }
+		     else if (a>b){
+		      out.innerHTML = 'Первое';
+			  }
+		   else {
+		      out.innerHTML = 'Равны';
+		   }
+		 }
+		 </script>
+	</body>
+</html>

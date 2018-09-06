@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8"/>
+	</head>
+	<body>
+	    <input type="number" id="in_a"> Вводимые данные	</input>
+		<input type="button" onclick="work()">
+		</input>
+		<div id="out"> </div>
+		<script>
+		function work(){
+		   var out = document.getElementById("out");
+		   var a = document.getElementById("in_a").value
+		   if (a<=0){
+		     out.innerHTML = 'Значение edge должно быть положительным'
+		     }
+		    else {
+		      a = Math.pow(a, 2) * 6;
+		      out.innerHTML = a.toFixed(4);
+			  }
+		 }
+		 </script>
+	</body>
+</html>

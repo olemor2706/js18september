@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8"/>
+	</head>
+	<body>
+	    <input type="number" id="in_a"> Длина рулона, м	</input> <br>
+		<input type="number" id="in_b"> Расход материала, см	</input> <br>
+		<input type="button" onclick="work()">
+		</input>
+		<div id="out"> </div>
+		<script>
+		function work(){
+		   var out = document.getElementById("out");
+		   var a = document.getElementById("in_a").value;
+		   if (a<0){
+		     out.innerHTML = 'Длина рулона должна быть положительна'
+			 return;
+		     }
+			var b = document.getElementById("in_b").value;
+			if (b<0){
+		     out.innerHTML = 'Расход материала должен быть положительным'
+			 return;
+		    }
+			a = 100*a;
+			if (a-b<0){
+		     out.innerHTML = 'Материала не хватит даже на одно изделие'
+			 return;
+		    }
+			var res1 = parseInt (a/b);
+			var res2 = a - res1*b;
+			out.innerHTML = res1 + " шт и " + res2 + " см";
+			//Math.floor - округление вниз
+			//Math.ceil - округление вверх
+			//Math.round - округление по математическим правилам
+		 }
+		 </script>
+	</body>
+</html>
