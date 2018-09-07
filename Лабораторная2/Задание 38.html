@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8"/>
+	</head>
+	<body>
+	    <h2>Вычислить результат по формуле</h2>
+		<input type="number" id="in_x1"> x1	</input> <br>
+		<input type="number" id="in_x2"> x2	</input><br>
+		<input type="button" onclick="work()" value="Рассчитать"></input>
+		<div id="out"> </div>
+		<script>
+		function work(){
+		   var out = document.getElementById("out");
+		   var x1 = parseFloat(document.getElementById("in_x1").value);
+		   var x2 = parseFloat(document.getElementById("in_x2").value);
+		   var res = Math.sqrt(Math.pow(x1,2) + Math.pow(x2,2));
+		   out.innerHTML = res.toFixed(4);
+		 }
+		 </script>
+	</body>
+</html>

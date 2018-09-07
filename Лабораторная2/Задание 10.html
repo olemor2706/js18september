@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8"/>
+	</head>
+	<body>
+	    <input type="number" id="in_a"> Угол А	</input>
+		<input type="number" id="in_b"> Угол В	</input>
+		<input type="button" onclick="work()">
+		</input>
+		<div id="out"> </div>
+		<script>
+		function work(){
+		   var out = document.getElementById("out");
+		   var a = parseFloat(document.getElementById("in_a").value)*Math.PI/180;
+		   var b = parseFloat(document.getElementById("in_b").value)*Math.PI/180;
+		   var res = Math.sin(a)*Math.cos(b)+Math.cos(a)*Math.sin(b);
+		   out.innerHTML = res.toFixed(4);
+		 }
+		 </script>
+	</body>
+</html>

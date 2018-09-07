@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8"/>
+	</head>
+	<body>
+	    <h2>Вычислить кинетическую и потенциальную энергию тела</h2>
+		<input type="number" id="mass"> Масса	</input> <br>
+		<input type="number" id="velocity"> Скорость	</input><br>
+		<input type="number" id="height"> Высота	</input><br>
+		<input type="button" onclick="work()" value="Рассчитать"></input>
+		<div id="out"> </div>
+		<script>
+		function work(){
+		   var out = document.getElementById("out");
+		   var m = parseFloat(document.getElementById("mass").value);
+		   var v = parseFloat(document.getElementById("velocity").value);
+		   var h = parseFloat(document.getElementById("height").value);
+		   if (m<=0){
+		     out.innerHTML = 'Значение mass должно быть положительным';
+			 return;
+			 }
+		   if (v<=0){
+		     out.innerHTML = 'Значение velocity должно быть положительным';
+			 return;
+			 } 
+		   if (h<=0){
+		     out.innerHTML = 'Значение height должно быть положительным';
+			 return;
+			 } 
+		   
+		   var w1 = m*Math.pow(v,2)/2;
+		   var w2 = 9.8067 * m * h;
+		   out.innerHTML = 'Кинетическая энергия составляет: ' + w1.toFixed(4) + 'Дж <br>'+
+		   'Потенциальная энергия составляет: ' + w2.toFixed(4) + 'Дж' ;
+		 }
+		 </script>
+	</body>
+</html>

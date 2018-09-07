@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8"/>
+	</head>
+	<body>
+	    <h2>Вычислить дискриминант квадратного уравнения по формуле discriminant = b2-4ac</h2>
+		<input type="number" id="in_a"> a	</input> <br>
+		<input type="number" id="in_b"> b	</input><br>
+		<input type="number" id="in_c"> c	</input><br>
+		<input type="button" onclick="work()" value="Рассчитать"></input>
+		<div id="out"> </div>
+		<script>
+		function work(){
+		   var out = document.getElementById("out");
+		   var a = parseFloat(document.getElementById("in_a").value);
+		   var b = parseFloat(document.getElementById("in_b").value);
+		   var c = parseFloat(document.getElementById("in_c").value);
+		   if (a==0){
+		     out.innerHTML = 'Уравнение y=0x^2+'+b+'x+'+c+' не является квадратным';
+			 return;
+			 }
+		   var res = Math.pow(b,2) - 4 * a *c;
+		   out.innerHTML = res.toFixed(4);
+		 }
+		 </script>
+	</body>
+</html>
