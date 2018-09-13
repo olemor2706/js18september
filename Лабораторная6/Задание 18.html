@@ -10,20 +10,24 @@
 		<input type="button" onclick="work()" value="Результат"></input>
 		<div id="out"> </div>
 		<script>
+		var arr = [];
+		var out = document.getElementById("out");
+		var a = document.getElementById("in_a");
+		var sum = 0;
+		var dig = 0;
 		function work(){
-		   var out = document.getElementById("out");
-		   var a = document.getElementById("in_a").value;
-		   
-	       var sum = 0;
-		   var dig = 0;
-		   var count = 0;
-		   for (var i = 0; i<=a.length-1; i++){
-		       count++;
-			   dig = parseInt(a.charAt(i));
-			   if (dig === 0){break;}
-			   sum = sum + dig;
+		   dig = parseInt(a.value);
+		   if (dig == 0){
+				for (var i = 0; i< arr.length; i++){
+					sum = sum + arr[i];
+				}
+				out.innerHTML = 'Сумма чисел: ' + sum + ', Количество чисел: ' + arr.length;
 		   }
-		   out.innerHTML = 'Сумма чисел: ' + sum + ', Количество чисел: ' + count;
+		   else{
+				arr.push(dig);
+				a.value = '';
+			}
+		   
 		}	
 		</script>
 	</body>

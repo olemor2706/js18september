@@ -21,39 +21,19 @@
 		   var char1 = '';
 		   var isChar = false;
 		   var count = -1;
-		   var charArray = [];
-		   for (var i = 0; i <= str.length-1; i++){
-		        char1 = str.charAt(i);
-				if (char1 != ' '){
-				    if (isChar){
-						charArray[count] = charArray[count] + char1;
-					}
-					else{
-						count++;
-						charArray[count] = char1;
-						isChar = true;
-					}
-				}
-				else{
-					isChar = false;
-				}
-			}
+		   var charArray = str.split(' ');
+		   
 			
-			char1 = charArray[count];
-			console.log(charArray);
-			console.log(count);
-		    for (i = count; i >= 1; i--){
+			char1 = charArray[charArray.length - 1];
+			for (i = charArray.length - 1; i >= 1; i--){
 				charArray[i] = charArray[i-1];
-				console.log('i= ' + i + ' ' + charArray[i] + ' ' + charArray[i-1]);
 		    }
 			charArray[0] = char1;
-			console.log(charArray);
 			
 			str = '';
-			for (i = 0; i <= count; i++){
+			for (i = 0; i <= charArray.length - 1; i++){
 				str = str + charArray[i] + ' ';
 		    }
-			console.log(str);
 		    out.innerHTML = str;
 		}	
 		</script>
