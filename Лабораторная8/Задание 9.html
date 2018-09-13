@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8"/>
+		
+	</head>
+	<body>
+	    <h2> Пользователь вводит строчку. Если она начинается с символа "s", то нужно сделать все символы строчными. Если начинается с "U", 
+		то нужно сделать все символы заглавными. Иначе - ничего не делать. Вывести результат на экран </h2>
+		<input type="text" id="in_a"> Вводимые данные	</input> <br>
+		<input type="button" onclick="work()" value="Результат"></input>
+		<div id="out"> </div>
+		<script>
+		function work(){
+		   var str = document.getElementById("in_a").value;
+		   var out = document.getElementById("out");
+		   var str1 = '';
+		   var char1 = str.charAt(0);
+		   		   
+		   if (char1 == 's'){
+				str1 = str.substr(1);
+				str = str.replace(str1, str1.toLowerCase());
+				out.innerHTML = str;
+				return;
+		   }
+		   
+		   if (char1 == 'U'){
+				str1 = str.substr(1);
+				str = str.replace(str1, str1.toUpperCase());
+				out.innerHTML = str;
+				return;
+		   }
+			
+			out.innerHTML = str;
+
+		}	
+		</script>
+	</body>
+</html>

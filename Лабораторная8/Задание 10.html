@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8"/>
+		
+	</head>
+	<body>
+	    <h2> В исходной строке заменить эту комбинацию на пробелы. </h2>
+		<input type="text" id="in_a"> Вводимые данные	</input> <br>
+		<input type="button" onclick="work()" value="Результат"></input>
+		<div id="out"> </div>
+		<script>
+		function work(){
+		    var a = document.getElementById("in_a").value;
+		    var out = document.getElementById("out");
+		    var str = 'abcdacadbacdaabaadc';
+		    if (a.length != 2){
+				out.innerHTML = 'Вводимая строка должна содержать ровно 2 символа';
+				return;
+		    }
+		    
+			out.innerHTML = str.replace(new RegExp(a,'g'),' ');
+		}	
+		</script>
+	</body>
+</html>

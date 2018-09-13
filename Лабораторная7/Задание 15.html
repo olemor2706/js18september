@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8"/>
+		
+	</head>
+	<body>
+	    <h2> Вывести данные в обратном порядке в строчку без запятых. </h2>
+		<input type="text" id="in_m"> M	</input> <br>
+		<input type="text" id="in_a"> Вводимые данные	</input> <br>
+		<input type="button" onclick="work()" value="Результат"></input>
+		<div id="out"> </div>
+		<script>
+		function work(){
+		   var out = document.getElementById("out");
+		   var m = parseInt(document.getElementById("in_m").value);
+		   var str = document.getElementById("in_a").value;
+		   var char1 = '';
+		   var isChar = false;
+		   var count = -1;
+		   var arrayChar = [];
+		   	  
+		   for (var i = 0; i <= str.length-1; i++){
+		        char1 = str.charAt(i);
+				if (char1 != ' '){
+				    if (isChar){
+						arrayChar[count] = arrayChar[count] + char1;
+					}
+					else{
+						count++;
+						arrayChar[count] = char1;
+						isChar = true;
+					}
+				}
+				else{
+					isChar = false;
+				}
+			}
+			arrayChar.forEach(function (v, i, arrayChar){arrayChar[i] = parseInt(v) * m;});
+			out.innerHTML = arrayChar.join(' ');
+		}	
+		</script>
+	</body>
+</html>

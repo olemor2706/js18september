@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8"/>
+	</head>
+	<body>
+	    <h2> Вывести на экран таблицу умножения </h2>
+	    <input type="number" id="in_a"> A	</input> <br>
+		
+		<input type="button" onclick="work()" value="Результат"></input>
+		<div id="out"> </div>
+		<script>
+		function work(){
+		   var out = document.getElementById("out");
+		   var a = parseInt(document.getElementById("in_a").value);
+	       var str = '';
+		   for (var i = 1; i<=9; i++){
+		       str = str + i + ' * ' + a + ' = ' + i*a + '<br>';
+		   }
+		   
+		   out.innerHTML = str;
+		}	
+		</script>
+	</body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8"/>
+		<!--<style>
+		    body{
+			  white-space:pre;
+			  font-family:monospace;
+			  }
+		</style>-->
+	</head>
+	<body>
+	    <h2> вывести элементы, у которых индекс находится между B и E </h2>
+		<input type="text" id="in_b"> B	</input> <br>
+		<input type="text" id="in_e"> E	</input> <br>
+		<input type="text" id="in_s"> Data	</input> <br>
+		<input type="button" onclick="work()" value="Результат"></input>
+		<div id="out"> </div>
+		<script>
+		function work(){
+		   var out = document.getElementById("out");
+		   var b = parseInt(document.getElementById("in_b").value);
+		   var e = parseInt(document.getElementById("in_e").value);
+		   var str = document.getElementById("in_s").value;
+		   var count = 0;
+		   var charArray = [];
+		   for (var i = 0; i<=str.length-1; i++){
+				if (str.charAt(i) != ' '){
+				charArray[count] = str.charAt(i);
+				count++;
+				}
+			}
+		   
+		   if (b < 0 || b > count-1){
+		      out.innerHTML = 'Число B должно быть в интервале [0, размер массива)';
+			  return;
+		   }
+		   if (e < 0 || e > count-1){
+		      out.innerHTML = 'Число E должно быть в интервале [0, размер массива)';
+			  return;
+		   }
+		   var b1 = Math.min(b,e);
+		   var e1 = Math.max(b,e);
+	       str = '';
+		   for (i = b1; i <= e1; i++){
+		       str = str + charArray[i] + ' ';
+			}
+			
+		   out.innerHTML = str;
+		}	
+		</script>
+	</body>
+</html>

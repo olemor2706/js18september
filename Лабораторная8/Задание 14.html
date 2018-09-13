@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8"/>
+		
+	</head>
+	<body>
+	    <h2> В исходной строке заменить эту комбинацию на пробелы. </h2>
+		<input type="text" id="in_a"> Вводимые данные	</input> <br>
+		<input type="button" onclick="work()" value="Результат"></input>
+		<div id="out"> </div>
+		<script>
+		function work(){
+		    var str = document.getElementById("in_a").value;
+		    var out = document.getElementById("out");
+			str = str.replace(/\[/g,'\\[');
+			str = str.replace(/\]/g,'\\]');
+			var char1 = '';
+			var count = 0;
+		    for (var i = 0; i < str.length; i++){
+				char1 = str.charAt(i);
+				if (char1 == '"'){
+					if (count%2 == 0){
+						str = str.replace(/\"/,'\[');
+					}
+					else{
+						str = str.replace(/\"/,'\]');
+					}
+					count++;
+				}
+			}
+			out.innerHTML = str;
+		}	
+		</script>
+	</body>
+</html>

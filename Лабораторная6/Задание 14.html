@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8"/>
+	</head>
+	<body>
+	    <h2> Найти сумму всех целых чисел от A до B включительно </h2>
+	    <input type="number" id="in_a"> A	</input> <br>
+		<input type="number" id="in_b"> B	</input> <br>
+		<input type="button" onclick="work()" value="Результат"></input>
+		<div id="out"> </div>
+		<script>
+		function work(){
+		   var out = document.getElementById("out");
+		   var a = parseInt(document.getElementById("in_a").value);
+		   var b = parseInt(document.getElementById("in_b").value);
+	       var sum = 0;
+		   for (var i = Math.min(a,b); i<=Math.max(a,b); i++){
+		       sum = sum + i;
+		   }
+		   
+		   out.innerHTML = sum;
+		}	
+		</script>
+	</body>
+</html>

@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8"/>
+		<style>
+		    body{
+			  white-space:pre;
+			  font-family:monospace;
+			  }
+		</style>
+	</head>
+	<body>
+	    <h2> Сравнить содержимое двух массивов и вывести результат в виде таблицы. </h2>
+		<input type="text" id="in_top"> Данные сверху	</input> <br>
+		<input type="text" id="in_left"> Данные слева	</input> <br>
+		<input type="button" onclick="work()" value="Результат"></input>
+		<div id="out"> </div>
+		<script>
+		function work(){
+		   var out = document.getElementById("out");
+		   var str_top = document.getElementById("in_top").value;
+		   var str_left = document.getElementById("in_left").value;
+		   var char1 = '';
+		   var isChar = false;
+		   var count = -1;
+		   var arrayTop = [];
+		   var arrayLeft = [];
+		   //Заполняем верхний массив символов
+		   for (var i = 0; i <= str_top.length-1; i++){
+		        char1 = str_top.charAt(i);
+				if (char1 != ' '){
+				    if (isChar){
+						arrayTop[count] = arrayTop[count] + char1;
+					}
+					else{
+						count++;
+						arrayTop[count] = char1;
+						isChar = true;
+					}
+				}
+				else{
+					isChar = false;
+				}
+			}
+			if (count == -1){
+				out.innerHTML = 'Данные сверху отсутствуют';
+				return;
+			}
+			
+			//Заполняем левый массив символов
+			char1 = '';
+		    isChar = false;
+		    count = -1;
+			for (i = 0; i <= str_left.length-1; i++){
+		        char1 = str_left.charAt(i);
+				if (char1 != ' '){
+				    if (isChar){
+						arrayLeft[count] = arrayLeft[count] + char1;
+					}
+					else{
+						count++;
+						arrayLeft[count] = char1;
+						isChar = true;
+					}
+				}
+				else{
+					isChar = false;
+				}
+			}
+			if (count == -1){
+				out.innerHTML = 'Данные слева отсутствуют';
+				return;
+			}
+			
+			str = ' ';
+			for (i = 0; i <= arrayTop.length-1; i++){
+				str = str + arrayTop[i];
+			}
+			str = str+ '<br>';
+			
+			for (i = 0; i <= arrayLeft.length-1; i++){
+				str = str + arrayLeft[i];
+				for (var j = 0; j <= arrayTop.length-1; j++){
+					if (arrayLeft[i] == arrayTop[j]){
+						str = str + '+';
+					}
+					else{
+						str = str + ' ';
+					}
+				}
+				str = str + '|<br>';
+			}
+			
+			str = str + ' ';
+			for (i = 0; i <= arrayTop.length-1; i++){
+				str = str + '-';
+			}
+		    out.innerHTML = str;
+		}	
+		</script>
+	</body>
+</html>

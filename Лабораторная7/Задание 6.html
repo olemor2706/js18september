@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8"/>
+		<!--<style>
+		    body{
+			  white-space:pre;
+			  font-family:monospace;
+			  }
+		</style>-->
+	</head>
+	<body>
+	    <h2> Сдвинуть все элементы массива на 1 позицию вправо. </h2>
+		<input type="text" id="in_s"> Data	</input> <br>
+		<input type="button" onclick="work()" value="Результат"></input>
+		<div id="out"> </div>
+		<script>
+		function work(){
+		   var out = document.getElementById("out");
+		   var str = document.getElementById("in_s").value;
+		   var char1 = '';
+		   var isChar = false;
+		   var count = -1;
+		   var charArray = [];
+		   for (var i = 0; i <= str.length-1; i++){
+		        char1 = str.charAt(i);
+				if (char1 != ' '){
+				    if (isChar){
+						charArray[count] = charArray[count] + char1;
+					}
+					else{
+						count++;
+						charArray[count] = char1;
+						isChar = true;
+					}
+				}
+				else{
+					isChar = false;
+				}
+			}
+			
+			char1 = charArray[count];
+			console.log(charArray);
+			console.log(count);
+		    for (i = count; i >= 1; i--){
+				charArray[i] = charArray[i-1];
+				console.log('i= ' + i + ' ' + charArray[i] + ' ' + charArray[i-1]);
+		    }
+			charArray[0] = char1;
+			console.log(charArray);
+			
+			str = '';
+			for (i = 0; i <= count; i++){
+				str = str + charArray[i] + ' ';
+		    }
+			console.log(str);
+		    out.innerHTML = str;
+		}	
+		</script>
+	</body>
+</html>

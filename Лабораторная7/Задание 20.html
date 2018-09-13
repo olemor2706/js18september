@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8"/>
+		
+	</head>
+	<body>
+	    <h2> Определить сколько элементов массива меньше, чем элемент на позиции B </h2>
+		<input type="text" id="in_b"> B	</input> <br>
+		<input type="text" id="in_a"> Вводимые данные	</input> <br>
+		<input type="button" onclick="work()" value="Результат"></input>
+		<div id="out"> </div>
+		<script>
+		function work(){
+		   var out = document.getElementById("out");
+		   var b = parseInt(document.getElementById("in_b").value);
+		   var str = document.getElementById("in_a").value;
+		   var char1 = '';
+		   var isChar = false;
+		   var count = -1;
+		   var arrayChar = [];
+		   	  
+		   for (var i = 0; i <= str.length-1; i++){
+		        char1 = str.charAt(i);
+				if (char1 != ' '){
+				    if (isChar){
+						arrayChar[count] = arrayChar[count] + char1;
+					}
+					else{
+						count++;
+						arrayChar[count] = char1;
+						isChar = true;
+					}
+				}
+				else{
+					isChar = false;
+				}
+			}
+			if (b<0 || b>count){
+				out.innerHTML = 'Число B должно быть в интервале [0, размер массива)';
+				return;
+			}
+			
+			
+			
+			arrayChar.forEach(function (v, i, arrayChar){arrayChar[i] = parseInt(v);});
+			var arrayChar1 = arrayChar.filter(function (v){return v < arrayChar[b];});
+			arrayChar1.toString();
+			out.innerHTML = arrayChar1.length;
+		}	
+		</script>
+	</body>
+</html>

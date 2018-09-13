@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8"/>
+		
+	</head>
+	<body>
+	    <h2> Вывести все индексы, на которых встречается введенная комбинация. </h2>
+		<input type="text" id="in_a"> Вводимые данные	</input> <br>
+		<input type="button" onclick="work()" value="Результат"></input>
+		<div id="out"> </div>
+		<script>
+		function work(){
+		   
+		   var a = document.getElementById("in_a").value;
+		   var out = document.getElementById("out");
+		   
+		   if (a.length != 2) {
+				out.innerHTML = 'Вводимая строка должна содержать ровно 2 символа';
+				return;
+		   }
+		   var count = 0;
+		   var posArray = [];
+		   var pos = 0;
+		    while(true){
+				pos = 'abcdacadbacdaabaadc'.indexOf(a, pos);
+				
+				if (pos != -1){
+					posArray[count] = pos;
+					pos++;
+					count++;
+				}
+				else {
+					break;
+				}
+			}
+		   
+		    if (count != 0){
+				posArray.toString();
+				out.innerHTML = posArray.join(' ');
+			}
+			else{
+				out.innerHTML = '';
+			}
+
+		}	
+		</script>
+	</body>
+</html>

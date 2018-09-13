@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8"/>
+		
+	</head>
+	<body>
+	    <h2> Напечатать на экране словесное описание выражения. </h2>
+		<input type="text" id="in_a"> Вводимые данные	</input> <br>
+		<input type="button" onclick="work()" value="Результат"></input>
+		<div id="out"> </div>
+		<script>
+		function work(){
+		    var str = document.getElementById("in_a").value;
+		    var out = document.getElementById("out");
+			var s1 = '';
+			var s2 = '';
+			var s3 = '';
+			var char1 = '';
+			var isS1 = true;
+			var isS2 = false;
+			var isS3 = false;
+			if (str.indexOf('\<') == -1 && str.indexOf('\>') == -1){
+				out.innerHTML = 'Отсутствует знак сравнения';
+				return;
+			}
+
+			for (var i = 0; i < str.length; i++){
+				char1 = str.charAt(i);
+				if (isS1){
+					if (char1 == '\<' || char1 == '\>'){
+						if (s1 == ''){
+							out.innerHTML = 'Слева от знака сравнения ожидается переменная';
+							return;
+						}
+						else{
+							isS1 = false;
+							isS2 = true;
+							s2 = char1;
+						}
+					}
+					else{
+						s1 = s1 + char1;
+					}
+					continue;
+				}
+				
+				if (isS2){
+					if (char1 == '='){
+						s2 = s2 + char1;
+					}
+					else{
+						s3 = char1;
+					}
+					isS2 = false;
+					isS3 = true;
+					continue;
+				}
+								
+				if (isS3){
+					if (char1 == '\<' || char1 == '\>'){
+						out.innerHTML = 'В выражении должен быть только один знак сравнения';
+						return;
+					}
+					else{
+						s3 = s3 + char1;
+						continue;
+					}
+				}
+				
+			}
+			s1 = s1.trim();
+			var n = s1.indexOf(' ');
+			if (n != -1){
+				out.innerHTML = 'Неожиданное выражение "'+ s1.substr(0,n) + 
+				'" слева от переменной "' + s1.substr(n+1) + '"';
+				return;
+			}
+	
+			s3 = s3.trim();
+			if (s3.length == 0){
+				out.innerHTML = 'Справа от знака сравнения ожидается ограничение';
+				return;
+			}
+			
+			n = s3.indexOf(' ');
+			if (n != -1){
+				out.innerHTML = 'Неожиданное выражение "'+ s3.substr(n + 1) + 
+				'" справа от переменной "' + s3.substr(0, n) + '"';
+				return;
+			}
+		    
+			if (s2.indexOf ('\>') == -1){
+				char1 = ' меньше ';
+			}
+			else{
+				char1 = ' больше ';	
+			}
+			
+			if (s2.indexOf ('=') != -1){
+				char1 = char1 + 'либо равно числу ';
+			}
+			else{
+				char1 = char1 + 'числа ';
+			}
+			
+			str = 'Значение переменной ' + s1 + char1 + s3;
+			out.innerHTML = str;
+		}	
+		</script>
+	</body>
+</html>
