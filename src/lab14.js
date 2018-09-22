@@ -21,3 +21,33 @@ Point.prototype = {
 		return Math.sqrt(dx*dx + dy*dy);
 	}
 }
+
+function hasIntersectionInts(leftA, leftB, rightA, rightB){
+	if (leftA > leftB || rightA > rightB){
+		var e = new Error ("Значение A должно быть меньше значения B");
+		throw e;
+	}
+	console.log(!(leftA > rightB || leftB < rightA) ? "пересекаются" : "не пересекаются");
+	return !(leftA > rightB || leftB < rightA);
+}
+
+function hasIntersectionObjects(leftPoint, rightPoint){
+	if (leftPoint.a > leftPoint.b || rightPoint.a > rightPoint.b){
+		var e = new Error ("Значение A должно быть меньше значения B");
+		throw e;
+	}
+	console.log(!(leftPoint.a > rightPoint.b || leftPoint.b < rightPoint.a) ? "пересекаются" : "не пересекаются");
+	return !(leftPoint.a > rightPoint.b || leftPoint.b < rightPoint.a);
+}
+
+
+function Range (x, y){
+	this.a = x;
+	this.b = y;
+}
+
+Range.prototype = {
+	intersects: function (x){
+		return !(this.a > x.b || this.b < x.a);
+	}
+}
