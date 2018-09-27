@@ -150,6 +150,10 @@ it ("проверка пересечения одного интервала с 
 		a: 2, 
 		b: 3,
 		intersects: function (a, b){
+			if (a >= b || this.a >= this.b){
+				e = new Error ("Значение A должно быть меньше значения B");
+				throw e;
+			}
 			return !(this.a > b || this.b < a);
 		}
 	};
@@ -190,16 +194,16 @@ it ("проверка пересечения одного интервала с 
 	leftPoint.b = 73;
 	rightA = 83;
 	rightB = 89;
-	/*var e = new Error ("Значение A должно быть меньше значения B");
+	var e = new Error ("Значение A должно быть меньше значения B");
 	var f = function () {leftPoint.intersects(rightA, rightB)};
-	expect(f).toThrow(e);*/
+	expect(f).toThrow(e);
 	
 	leftPoint.a = 97;
 	leftPoint.b = 101;
 	rightA = 107;
 	rightB = 103;
-	/*f = function () {leftPoint.intersects(rightA, rightB)};
-	expect(f).toThrow(e);*/
+	f = function () {leftPoint.intersects(rightA, rightB)};
+	expect(f).toThrow(e);
 })
 
 
@@ -252,9 +256,9 @@ it ("проверка пересечения одного интервала с 
 	leftPoint.b = 73;
 	rightPoint.a = 83;
 	rightPoint.b = 89;
-	/*var e = new Error ("Значение A должно быть меньше значения B");
+	var e = new Error ("Значение A должно быть меньше значения B");
 	var f = function () {leftPoint.intersects(rightA, rightB)};
-	expect(f).toThrow(e);*/
+	expect(f).toThrow(e);
 	
 	leftPoint.a = 97;
 	leftPoint.b = 101;
